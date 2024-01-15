@@ -1,0 +1,31 @@
+{
+  "name": "bm-svelte",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/adapter-node": "^1.0.0-next.100",
+    "@sveltejs/kit": "next",
+    "svelte": "^3.44.0",
+    "svelte-range-slider-pips": "^2.0.3",
+    "vite": "^3.1.0"
+  },
+  "type": "module",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "ip": "^2.0.0",
+    "mongodb": "^4.10.0",
+    "node-fetch": "^3.3.2"
+  },
+  "description": "Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).",
+  "main": "svelte.config.js",
+  "author": "",
+  "license": "ISC"
+}

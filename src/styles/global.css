@@ -1,0 +1,10 @@
+body{
+    margin: 0;
+    justify-content: center;
+    text-align: center;
+
+    color:whitesmoke ;
+    overflow-x: hidden;
+    background:#1f1f1f;
+    font-family: Arial, Helvetica,'Noto Sans Symbols 2',sans-serif;
+}
