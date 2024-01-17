@@ -68,6 +68,7 @@ export async function load({params,url})
 
     let arr =[];
     let man=db['manga_data']
+    let ratings=db['ratings']
     
     if(ObjectId. isValid(id)){ 
 
@@ -106,6 +107,11 @@ export async function load({params,url})
 
         
         let jsona={"p":id,"l":ref,"chen":chen,"chjp":chjp,"enp":enp,"jpp":jpp,"manga_data":arr[0],"ipfs":ipfsss};
+        if (id in ratings) {
+            jsona["rating_data"] = ratings[id]
+        } else {
+            jsona["rating_data"] = { "url":"http://mangaupdates.com", "rating":"N/A", "votes": 0, "last_updated":"N/A"}
+        }
         jsonc = JSON.stringify(jsona);
         jsonc=JSON.parse(jsonc)
 

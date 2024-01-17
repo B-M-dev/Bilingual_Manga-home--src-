@@ -69,6 +69,15 @@ const clst=()=>
     </div>
 </div>
 
+<div style="display: flex;">
+    <div>
+    <b style="font-size: 1.1rem;">Rating</b>
+    <div class="metae">
+    <a href="{meta.RatingData.url}" target="_blank" title="Mangaupdates.com ({meta.RatingData.last_updated})">{meta.RatingData.rating} ({meta.RatingData.votes} votes)</a>
+    </div>
+    </div>
+</div>
+
 <div class="metaesyn" style="margin-top:10px;">
     {syn}    
 </div>
