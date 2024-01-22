@@ -2,16 +2,20 @@
 export let data;
 export let ls;
 export let cdncdn="";
-let jpi=`background-image:url(${cdncdn}/${data.coverjp});background-position: center;background-repeat: no-repeat;background-size: cover;`
-let eni=`background-image:url(${cdncdn}/${data.coveren});background-position: center;background-repeat: no-repeat;background-size: cover;`
+export let subheading="";
+
+$: jpi=`background-image:url(${cdncdn}/${data.coverjp});background-position: center;background-repeat: no-repeat;background-size: cover;`
+$: eni=`background-image:url(${cdncdn}/${data.coveren});background-position: center;background-repeat: no-repeat;background-size: cover;`
 </script>
+{#key data}
 {#if ls==="en"}
 <span style="display:flex;">
    <span class="mangacardhover">
     <a href="/manga/{data.enid}?lang=en" data-sveltekit:prefetch style="color: #f2f2f2;text-decoration: none;" target="_top" rel="noopener noreferrer">
         <div class="mangacard" style={eni}>
-        <div class="mangacarddiv" >{data.entit}</div>
-    </div>
+            <div class="mangacarddiv" >{data.entit}</div>
+        </div>
+        <div class="mangacarddiv" >{subheading}</div>
     </a>
    </span>
 </span>
@@ -21,7 +25,9 @@ let eni=`background-image:url(${cdncdn}/${data.coveren});background-position: ce
     <span class="mangacardhover">
      <a href="/manga/{data.enid}?lang=jp" data-sveltekit:prefetch style="color: #f2f2f2;text-decoration: none;" target="_top" rel="noopener noreferrer"><div class="mangacard" style={jpi}>
          <div class="mangacarddiv" >{data.jptit}</div>
-     </div></a>
+        </div>
+        <div class="mangacarddiv" >{subheading}</div>
+    </a>
  </span>
  </span>
 
@@ -31,19 +37,23 @@ let eni=`background-image:url(${cdncdn}/${data.coveren});background-position: ce
      <a href="/manga/{data.enid}?lang=en" data-sveltekit:prefetch style="color: #f2f2f2;text-decoration: none;" target="_top" rel="noopener noreferrer">
          <div class="mangacard" style={eni}>
          <div class="mangacarddiv" >{data.entit}</div>
-     </div>
-     </a>
+        </div>
+        <div class="mangacarddiv" >{subheading}</div>
+    </a>
     </span>
  </span>
  <span style="display:flex;">
     <span class="mangacardhover">
      <a href="/manga/{data.enid}?lang=jp" data-sveltekit:prefetch style="color: #f2f2f2;text-decoration: none;" target="_top" rel="noopener noreferrer"><div class="mangacard" style={jpi}>
          <div class="mangacarddiv" >{data.jptit}</div>
-     </div></a>
+        </div>
+        <div class="mangacarddiv" >{subheading}</div>
+    </a>
  </span>
  </span>
  {/if}
  {/if}
+ {/key}
 
 <style>
 .mangacard{
