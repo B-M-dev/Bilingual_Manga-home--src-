@@ -73,7 +73,7 @@ const clst=()=>
     <div>
     <b style="font-size: 1.1rem;">Rating</b>
     <div class="metae">
-    <a href="{meta.RatingData.url}" target="_blank" title="Mangaupdates.com ({meta.RatingData.last_updated})">{meta.RatingData.rating} ({meta.RatingData.votes} votes)</a>
+    <a href="{meta.rating_data.url}" target="_blank" title="Mangaupdates.com ({meta.rating_data.last_updated})">{meta.rating_data.rating} ({meta.rating_data.votes} votes)</a>
     </div>
     </div>
 </div>
