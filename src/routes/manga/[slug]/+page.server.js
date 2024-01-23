@@ -68,7 +68,6 @@ export async function load({params,url})
 
     let arr =[];
     let man=db['manga_data']
-    let ratings=db['ratings']
     
     if(ObjectId. isValid(id)){ 
 

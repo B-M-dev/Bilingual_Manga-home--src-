@@ -36,7 +36,6 @@ $:{
         if(element.enid===data.p)
         {
             ll=element;
-            ll['RatingData'] = data.rating_data;
           
         }
         
