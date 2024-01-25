@@ -1,5 +1,5 @@
 export let sort_options = {
-    'Newly added': { field: 'enid',     is_value:false, add_subheading:false, rev:true },
+    'Newly added': { field: '',     is_value:false, add_subheading:false, rev:false },
     'A-Z'        : { field: 'entit',    is_value:false, add_subheading:false, rev:false },
     'Release'    : { field: 'Release',  is_value:true, add_subheading:true, rev:true },
     'Rating'     : { field: '',         is_value:true, add_subheading:true, rev:true },
@@ -14,7 +14,10 @@ export const sortManga = (x, sort_criteria, sort_reverse) => {
         let sort_value;
         if (sort_criteria=='Rating') {
             sort_value = x[key]['rating_data']['rating'];
-        } else {
+        } else if(sort_criteria=='Newly added'){
+            sort_value = x[key];//enid isn't right for half of the manga(Yotsuba is the oldest not Emanon).They are already in that order in manga_titles array. 
+        }
+        else {
             sort_value = x[key][ sort_options[sort_criteria].field ];
         }
         return [key, sort_value ];   

@@ -11,6 +11,8 @@
     let numoe=12
     let url1=""
 
+    let sx=x; // sorted manga list (already sorted by 'Newly added' by default)
+
     url1=`${$page.url}`.split('?')[0]
     let pagen=parseInt($page.url.searchParams.get('page'));
     let ls=$page.url.searchParams.get('ls');
@@ -21,7 +23,7 @@
     let sort_reverse=$page.url.searchParams.get('reverse') == "true" ? true : false;
 
     $: url_param = "ls=" + ls + "&sort=" + sort_criteria + "&reverse=" + (sort_reverse ? "true" : "false");
-    $: x = sortManga(x, sort_criteria, sort_reverse);
+    $: sx = sortManga(x, sort_criteria, sort_reverse);
 
     if(ls==="en" || ls==="jp")
     {
@@ -35,7 +37,7 @@
     }
     
 
-    let xnum=Math.ceil(x.length/numoe)
+    let xnum=Math.ceil(sx.length/numoe)
     let xarr=[];
     for(let i=1;i<=xnum;i++)
     {
@@ -86,7 +88,7 @@
     </div>
     </div>
 <div id="cardholderid" class="cardholder">
-    {#each x as manga,pi }
+    {#each sx as manga,pi }
     {#if pagchang(pi) }
     <MangaCard data={manga} subheading={manga.subheading} ls={ls} cdncdn={cdncdn1}/>
     {/if}        
