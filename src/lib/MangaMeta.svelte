@@ -1,4 +1,5 @@
 <script>
+import MangaFavouriteButton from "./MangaFavouriteButton.svelte";
 export let meta;
 export let syn;
 let st="🡓🡓 Show More 🡓🡓"
@@ -67,13 +68,16 @@ const clst=()=>
     <a href="/manga-status/{meta.Status}">{meta.Status}</a>
     </div>
     </div>
-</div>
-
-<div style="display: flex;">
     <div>
     <b style="font-size: 1.1rem;">Rating</b>
     <div class="metae">
     <a href="{meta.rating_data.url}" target="_blank" title="Mangaupdates.com ({meta.rating_data.last_updated})">{meta.rating_data.rating} ({meta.rating_data.votes} votes)</a>
+    </div>
+    </div>
+    <div>
+    <b style="font-size: 1.1rem;">Favourite</b>
+    <div class="metae">
+    <MangaFavouriteButton {meta}/>
     </div>
     </div>
 </div>

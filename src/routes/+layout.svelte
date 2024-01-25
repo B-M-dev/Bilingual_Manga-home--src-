@@ -2,8 +2,8 @@
     import Header from '$lib/Header.svelte'
     import '../styles/global.css'
     import {obj} from '$lib/store.js';
-    export let data;
-    obj.set(data);
+    export let data; // this contains manga_metadata (loaded in layout_server.js via db.js)
+    obj.set(data); // store.js <-- manga_metadata
 
 </script>
 <Header bind:datav={data}/>
