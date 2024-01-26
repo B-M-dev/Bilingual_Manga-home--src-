@@ -1,5 +1,5 @@
 export let sort_options = {
-    'Newly added': { field: '',     is_value:false, add_subheading:false, rev:false },
+    'Newly added': { field: '',     is_value:false, add_subheading:false, rev:true },//YAWARA is the newly added and Yotsuba should be in the last page.
     'A-Z'        : { field: 'entit',    is_value:false, add_subheading:false, rev:false },
     'Release'    : { field: 'Release',  is_value:true, add_subheading:true, rev:true },
     'Rating'     : { field: '',         is_value:true, add_subheading:true, rev:true },
