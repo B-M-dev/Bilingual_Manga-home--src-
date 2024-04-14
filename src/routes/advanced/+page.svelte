@@ -67,11 +67,11 @@ else if(fd==2)
 <div style="text-align:left;margin-left:5vw;margin-right:5vw;color:whitesmoke;">
 <div style="text-align:center;font-weight:bolder;font-size:1.4rem;margin:10px;">
     {#if fd!=0 && fd>0}
-    <button on:click={()=>{fd=fd-1;chdgw();}}>🮤</button>
+    <button on:click={()=>{fd=fd-1;chdgw();}}>-</button>
     {/if}
     {nbk}
     {#if fd!=4}
-    <button on:click={()=>{fd=fd+1;sessionStorage.getItem("fd",fd);chdgw();}}>🮥</button>
+    <button on:click={()=>{fd=fd+1;sessionStorage.getItem("fd",fd);chdgw();}}>+</button>
     {/if}
 </div>
 {#if fd===0}

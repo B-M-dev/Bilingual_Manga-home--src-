@@ -73,6 +73,7 @@ const querys=(key,value)=>{
 	let vi;
 	let vj;
 	export let lang="JP";
+	export let imgdata={};
 
 
 	imgs_engo=imgscon(endata.ch_en,endata.ch_enh);
@@ -337,7 +338,7 @@ $:{
 
 </script>
 <Reader delayml={delayml} prel={prel} bind:imgs_jap={imgs_jap} bind:imgs_eng={imgs_eng} bind:eng_ocr={eng_ocr} bind:jp_ocr={jp_ocr} bind:lang={lang} bind:enp={enp} bind:jpp={jpp} bind:indicator={indicator} bind:chaptersen={chaptersen} bind:iii={iii} bind:chaptersjp={chaptersjp} bind:jjj={jjj} 
-bind:volumesen={volumesen} bind:volumesjp={volumesjp} bind:vi={vi} bind:vj={vj} bind:check={check}></Reader>
+bind:volumesen={volumesen} bind:volumesjp={volumesjp} bind:vi={vi} bind:vj={vj} bind:check={check} imgdata={imgdata}></Reader>
 <style>
 
 </style>

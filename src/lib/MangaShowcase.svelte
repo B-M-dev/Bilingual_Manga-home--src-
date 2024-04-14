@@ -79,7 +79,7 @@
         <a href="{url1}?page=1&ls={ls}" data-sveltekit:prefetch target="_top" rel="noopener noreferrer">First</a>&nbsp
         {/if} 
         {#if (pii2>0)}
-        <a href="{url1}?page={pii2}&ls={ls}" data-sveltekit:prefetch target="_top" rel="noopener noreferrer">🮤</a>&nbsp   
+        <a href="{url1}?page={pii2}&ls={ls}" data-sveltekit:prefetch target="_top" rel="noopener noreferrer">-</a>&nbsp   
         {/if}  
         {#each xarr as xi }
             
@@ -88,7 +88,7 @@
             {/if}
         {/each}
         {#if (pii3<=xnum)}
-        <a href="{url1}?page={pii3}&ls={ls}" data-sveltekit:prefetch target="_top" rel="noopener noreferrer">🮥</a>&nbsp 
+        <a href="{url1}?page={pii3}&ls={ls}" data-sveltekit:prefetch target="_top" rel="noopener noreferrer">+</a>&nbsp 
         {/if}
         {#if (pii!=xnum)}
         &nbsp<a href="{url1}?page={xnum}&ls={ls}" data-sveltekit:prefetch target="_top" rel="noopener noreferrer">Last</a>&nbsp   

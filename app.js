@@ -135,7 +135,7 @@ app.listen(3300, function () {
     
 });
 async function fetc(){
-  let xx=await fetch("http://localhost:3300/json/admin.manga_metadata.json")
+  let xx=await fetch("http://localhost:3300/json/BM_data.manga_metadata.json")
   let res = await xx.json()
   let re1=res[0]
   manob["meta"]=re1
@@ -176,7 +176,7 @@ async function fetc(){
 }
 
 function imgdl(sel){
-  fs.readFile('./json/admin.manga_data.json', 'utf8', function(err1, contents1) {
+  fs.readFile('./json/BM_data.manga_data.json', 'utf8', function(err1, contents1) {
     if (err1) {throw err1;}else{
       let mdata=JSON.parse(contents1)
      

@@ -1,17 +1,17 @@
 <script>
 export let meta;
 export let syn;
-let st="🡓🡓 Show More 🡓🡓"
+let st="Show More"
 const clst=()=>
 {
-    if(st==="🡓🡓 Show More 🡓🡓")
+    if(st==="Show More")
     {
-        st="🡑🡑 Show Less 🡑🡑";
+        st="Show Less";
         document.getElementById("metac").style="height:auto;"
 }
-    else if(st==="🡑🡑 Show Less 🡑🡑")
+    else if(st==="Show Less")
     {
-        st="🡓🡓 Show More 🡓🡓";
+        st="Show More";
         document.getElementById("metac").style="height:50vh;"
 
 }

@@ -60,11 +60,17 @@ let chaptersjp=data.manga_data.jp_data.ch_najp;
 
 let volumesen=data.manga_data.en_data.vol_en;
 let volumesjp=data.manga_data.jp_data.vol_jp;
+let imgdata={}
+if("img_data" in data.manga_data)
+{
+    imgdata=data.manga_data.img_data
+}
+
 </script>
 {#if ((data.chen!=null&&data.chen!=undefined&&data.chen.length > 0&&parseInt(data.chen)>=0)||(data.chjp!=null&&data.chjp!=undefined&&data.chjp.length > 0&&parseInt(data.chjp)>=0))}
 
 {@html meta[0].inhtml['ad-up']}
-<MangaApp  delayml={delayml} prel={prel} ipfsgate={data.ipfs} cdncdn={cdncdn} cdncdn1={cdncdn1} cheng={parseInt(chengt)} chjpn={parseInt(chjpt)} enp={[enp]} jpp={[jpp]} lang={langt} endata={imgs_darr.en_data} jpdata={imgs_darr.jp_data} chaptersen={chaptersen} chaptersjp={chaptersjp} volumesen={volumesen} volumesjp={volumesjp}/>
+<MangaApp  delayml={delayml} prel={prel} ipfsgate={data.ipfs} cdncdn={cdncdn} cdncdn1={cdncdn1} cheng={parseInt(chengt)} chjpn={parseInt(chjpt)} enp={[enp]} jpp={[jpp]} lang={langt} endata={imgs_darr.en_data} jpdata={imgs_darr.jp_data} chaptersen={chaptersen} chaptersjp={chaptersjp} volumesen={volumesen} volumesjp={volumesjp} imgdata={imgdata}/>
 {@html meta[0].inhtml['ad-down']}
 {:else}
 <MangaView ll={ll} data={data} cdncdn1={cdncdn1}/>

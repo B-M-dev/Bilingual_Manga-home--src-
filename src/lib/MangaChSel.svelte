@@ -15,15 +15,15 @@ const btnel=(e)=>{
     let httarr=htt.split("#r@e%r@e#");
     let volo=document.getElementById(`vol${httarr[1]}`);
     console.log(volo);
-    if(htt.indexOf('🮦')!=-1)
+    if(htt.indexOf('W')!=-1)
     {   
         volo.style.display="block";
-        htt=htt.replace('🮦','🮧');
+        htt=htt.replace('W','M');
     }
-    else if(htt.indexOf('🮧')!=-1)
+    else if(htt.indexOf('M')!=-1)
     {
         volo.style.display="none";
-        htt=htt.replace('🮧','🮦');
+        htt=htt.replace('M','W');
     }
     tar.innerHTML=htt;
 }
@@ -31,7 +31,7 @@ const btnel=(e)=>{
 <div id="chlist">
 {#each vna as v,jji}
 {#if (jji==0)}
-<div style="font-size: 1.15rem;margin:10px 0px;"><button on:click={btnel}>{v}<span class="arrowch">🮧<span class="invi" style="display:none;">#r@e%r@e#{jji}#r@e%r@e#</span></span><span class="invi" style="display:none;">#r@e%r@e#{jji}#r@e%r@e#</span></button></div>
+<div style="font-size: 1.15rem;margin:10px 0px;"><button on:click={btnel}>{v}<span class="arrowch">M<span class="invi" style="display:none;">#r@e%r@e#{jji}#r@e%r@e#</span></span><span class="invi" style="display:none;">#r@e%r@e#{jji}#r@e%r@e#</span></button></div>
 <div id="vol{jji}">
 {#each ch.slice(vol[v].s, ((vol[v].e)+1)) as c,i }
     
@@ -45,7 +45,7 @@ const btnel=(e)=>{
 {/each}
 </div>
 {:else}
-<div style="font-size: 1.15rem;margin:10px 0px;"><button on:click={btnel}>{v}<span class="arrowch">🮦<span class="invi" style="display:none;">#r@e%r@e#{jji}#r@e%r@e#</span></span><span class="invi" style="display:none;">#r@e%r@e#{jji}#r@e%r@e#</span></button></div>
+<div style="font-size: 1.15rem;margin:10px 0px;"><button on:click={btnel}>{v}<span class="arrowch">W<span class="invi" style="display:none;">#r@e%r@e#{jji}#r@e%r@e#</span></span><span class="invi" style="display:none;">#r@e%r@e#{jji}#r@e%r@e#</span></button></div>
 <div id="vol{jji}" style="display:none">
 {#each ch.slice(vol[v].s, ((vol[v].e)+1)) as c,i }
     

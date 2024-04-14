@@ -21,7 +21,7 @@
 <div id="mainimagetitle">{ll.entit}</div>
 </div>
 <MangaMeta meta={ll} syn={data.manga_data.syn_en}/>
-<div style="text-align: left;margin-left:5.3vw;"><a class="chbtna" href="{url1}?lang=jp" data-sveltekit:prefetch target="_top" rel="noopener noreferrer">JP 🡆</a></div>
+<div style="text-align: left;margin-left:5.3vw;"><a class="chbtna" href="{url1}?lang=jp" data-sveltekit:prefetch target="_top" rel="noopener noreferrer">JP</a></div>
 <MangaChSel ch={chaptersen} vol={volumesen} la="en"/>
 
 {:else}
@@ -32,7 +32,7 @@
 <div id="mainimagetitle">{ll.jptit}</div>
 </div>
 <MangaMeta meta={ll} syn={data.manga_data.syn_jp}/>
-<div style="text-align: left;margin-left:5vw;"><a class="chbtna" href="{url1}?lang=en" data-sveltekit:prefetch target="_top" rel="noopener noreferrer">EN 🡆</a></div>
+<div style="text-align: left;margin-left:5vw;"><a class="chbtna" href="{url1}?lang=en" data-sveltekit:prefetch target="_top" rel="noopener noreferrer">EN</a></div>
 <MangaChSel ch={chaptersjp} vol={volumesjp} la="jp"/>
 
 {/if} 

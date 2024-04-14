@@ -1,10 +1,11 @@
 <script>
     import RangeSlider from "svelte-range-slider-pips";
 	import { onMount } from 'svelte';
-
+	
     export let pauseen;
 	export let pausejp;
 
+	export let auto;
     export let check;
     export let chaptersen;
     export let chaptersjp;
@@ -34,16 +35,36 @@
 	export let nomouse;
 
 	export let updown=true;
-	export let upt="🡅";
+	export let upt="M";
 	let chfl = false;
 	export let ocron = false;
 	export let ocroff = false;
 	export let ocrbor = false;
 
 	export let fitfunc;
+	let autotxt="AX"
+	const autoxf=()=>{if(auto){auto=false;autotxt="AO"}else{auto=true;autotxt="AX"};setfunc();}
+	const autoxf1=()=>{if(auto){autotxt="AX"}else{autotxt="AO"}}
+	onMount(() => {allst();flt();fitfunc();autoxf1()});
 	
-	onMount(() => {allst();flt();fitfunc();});
-	
+
+	const handleKeydown=(e)=>{	
+		let key = e.key;
+		if(key=="l")
+		{
+			change()
+		}
+		else if(key == "m")
+		{
+			upb()
+		}
+		else if(key == "o")
+		{
+			autoxf()
+		}
+	}
+
+
 
 	const flt=()=>{
 		if(chfl)
@@ -65,13 +86,13 @@
 	const upb=()=>{
 		if(updown)
 		{
-			upt="🡇";
+			upt="W";
 			updown=false;
 			document.getElementById("dash").style="position:fixed;bottom:1px;right:2.5vw;left:2.5vw;z-index: 999;background-color:rgba(0,0,0,0.6);"
 		}
 		else
 		{
-			upt="🡅";
+			upt="M";
 			updown=true;
 			document.getElementById("dash").style="position:static;right:2.5vw;left:2.5vw;z-index: 999;background-color:rgba(0,0,0,0.6);"
 		}
@@ -135,6 +156,12 @@ const allst=()=>{
 	{fitscreen=true;}
 
 
+	if(sessionStorage.getItem("automatch")!=null)
+	{auto=sessionStorage.getItem("automatch")==="false"?false:true;}
+	else
+	{auto=true;}
+
+
 	if(localStorage.getItem("nomouse")!=null)
 	{nomouse=localStorage.getItem("nomouse")==="true"?true:false;}
 	else
@@ -144,6 +171,7 @@ const allst=()=>{
 const setfunc=()=>{
 	localStorage.setItem("nomouse", nomouse);
 	localStorage.setItem("fitscreen", fitscreen);
+	sessionStorage.setItem("automatch", auto);
 	localStorage.setItem("check", check);
 	localStorage.setItem("checkpage", checkpage);
 	localStorage.setItem("chfl", chfl);
@@ -160,14 +188,15 @@ const setfunc=()=>{
 
 
 </script>
-
+<svelte:window on:keydown={handleKeydown}/>
 <div id="slider" >
 	<div id="r-opt">
-		<span id="langb"><button on:click={()=>{change();}} style="height:45px;width:45px;">{langds}</button><button id="updownb" on:click={upb}>{upt}</button></span>
+		<span id="langb"><button id="autox" on:click={autoxf}>{autotxt}</button><button on:click={()=>{change();}} style="height:45px;width:45px;">{langds}</button><button id="updownb" on:click={upb}>{upt}</button></span>
 	</div>
 	<div>
 		<input type=checkbox bind:checked={chfl} on:change={flt}>Float buttons
 		<input type=checkbox bind:checked={fitscreen} on:change={setfunc}>Fit-screen
+		<input type=checkbox bind:checked={auto} on:change={setfunc}>Auto
 		<input type=checkbox bind:checked={nomouse} on:change={setfunc}>No-click
 	</div>
 	<div>
