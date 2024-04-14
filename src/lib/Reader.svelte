@@ -395,9 +395,9 @@
 		{
 			if(j>0 || auto)
 			{
-			if(document.getElementById("ch-i1").src!=imgs_jp[notj])
+			if(document.getElementById("ch-i1").src!=imgs_jp[j-1])
 				{
-			document.getElementById("ch-i1").src=imgs_jp[notj];
+			document.getElementById("ch-i1").src=imgs_jp[j-1];
 			
 				}
 			}
@@ -467,9 +467,9 @@
 		{
 			if(j>0 || auto)
 			{
-			if(document.getElementById("ch-i1").src!=imgs_jp[notj])
+			if(document.getElementById("ch-i1").src!=imgs_jp[j-1])
 				{
-			document.getElementById("ch-i1").src=imgs_jp[notj];
+			document.getElementById("ch-i1").src=imgs_jp[j-1];
 			
 				}
 			}
