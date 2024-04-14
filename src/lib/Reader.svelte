@@ -52,7 +52,7 @@
 	let recheckhe1=true
 	$:j=0;
 	$: langds=lang==="JP"?"ENG":"JP";
-	let notj=j-1;
+
 	export let jpp = [0];
 	export let enp = [0];
 	let scrollon=false;
@@ -73,22 +73,9 @@
 				let newenp=[parseInt(kkkka.split('_')[1])];
 				iii=newiii
 				enp=newenp
-				let lollo=kkkka.split('_')
-				if(lollo.length==3)
-				{
-					checken=true;
-					notj=lollo[2];
-				}
-				else
-				{
-					checken=false;					
-				}
+
 			}
 
-			if(!kkkk.includes(`${jjj}_${jpp[0]}`))
-			{	checken=false;
-				notj=j-1;
-			}
 
 
 			if(kkkk1.includes(`${iii}_${enp[0]}`) && lang=='ENG')
@@ -102,22 +89,9 @@
 				jjj=newjjj
 				jpp=newjpp
 
-				let lollo=kkkka.split('_')
-				if(lollo.length==3)
-				{
-					checkjp=true;
-					notj=lollo[2];
-				}
-				else
-				{
-					checkjp=false;					
-				}
 				
 			}
-			if(!kkkk1.includes(`${iii}_${enp[0]}`))
-			{	checkjp=false;
-				notj=j-1;
-			}
+
 		
 			$page.url.searchParams.set('chjp',jjj);
 			$page.url.searchParams.set('chen',iii);
