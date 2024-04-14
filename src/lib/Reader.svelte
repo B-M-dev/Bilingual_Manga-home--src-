@@ -367,7 +367,7 @@
 
 		if(checken&&lang==="ENG"||checkjp&&lang==="JP")
 		{
-			if(j>0 || auto)
+			if(j>0)
 			{
 			if(document.getElementById("ch-i1").src!=imgs_jp[j-1])
 				{
@@ -375,7 +375,7 @@
 			
 				}
 			}
-		else if(j==0 && !auto)
+		else if(j==0)
 			{
 			if(document.getElementById("ch-i1").src!=imgs_jp[0])
 				{
@@ -439,7 +439,7 @@
 
 		if(checken&&lang==="ENG"||checkjp&&lang==="JP")
 		{
-			if(j>0 || auto)
+			if(j>0)
 			{
 			if(document.getElementById("ch-i1").src!=imgs_jp[j-1])
 				{
@@ -447,7 +447,7 @@
 			
 				}
 			}
-		else if(j==0 && !auto)
+		else if(j==0)
 			{
 			if(document.getElementById("ch-i1").src!=imgs_jp[0])
 				{
