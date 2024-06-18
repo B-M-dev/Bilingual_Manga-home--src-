@@ -67,27 +67,50 @@ export async function load({params,url})
 
 
     let arr =[];
-
+    let man=db['manga_data']
+    
     if(ObjectId. isValid(id)){ 
-        let o_id = new ObjectId(id);
-        await db.collection('manga_data').find(ObjectId(o_id)).forEach(m_id => arr.push(m_id));
-        if(arr.length!=0)
-        {   let jsonc;
-            const ref = url.searchParams.get('lang');
-            const chen = url.searchParams.get('chen');
-            const chjp = url.searchParams.get('chjp');
-            const enp = url.searchParams.get('enp');
-            const jpp = url.searchParams.get('jpp');
-    
-    
 
+    for(let m_id in man)
+    { 
+      let m_idel=man[m_id]
+      let x111=m_idel['_id'];
+      let x112=x111['$oid'];
+    if(x112==id){arr.push(m_idel);break;}
+        
+        }
     
-            let jsona={"p":id,"l":ref,"chen":chen,"chjp":chjp,"enp":enp,"jpp":jpp,"manga_data":arr[0],"ipfs":meta['0'].ipfsgate};
-            jsonc = JSON.stringify(jsona);
-            jsonc=JSON.parse(jsonc)
+    if(arr.length!=0)
+    {   let jsonc;
+        const ref = url.searchParams.get('lang');
+        const chen = url.searchParams.get('chen');
+        const chjp = url.searchParams.get('chjp');
+        const enp = url.searchParams.get('enp');
+        const jpp = url.searchParams.get('jpp');
 
-            return jsonc;     
-            
-        }}
-        throw error(404, 'Not found');
-    }
+
+
+        let ipfsss=""
+        let aa1=await fetch(`${meta['0'].cdn1}/json/dw.json`)
+        let aa2 = await aa1.json()
+        let pm = aa2["pm"]
+
+        if(pm.includes(id))
+        {
+            ipfsss=meta['0'].ipfsgate1
+        }
+        else
+        {
+            ipfsss=meta['0'].ipfsgate
+        }
+
+        
+        let jsona={"p":id,"l":ref,"chen":chen,"chjp":chjp,"enp":enp,"jpp":jpp,"manga_data":arr[0],"ipfs":ipfsss};
+        jsonc = JSON.stringify(jsona);
+        jsonc=JSON.parse(jsonc)
+
+        return jsonc;     
+        
+    }}
+    throw error(404, 'Not found');
+}
