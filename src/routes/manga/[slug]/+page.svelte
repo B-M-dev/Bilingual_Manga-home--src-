@@ -18,10 +18,7 @@ obj.subscribe(value => { meta=value;});
 let x = meta['0'].manga_titles;
 let cdncdn = meta['0'].cdn;
 let cdncdn1 = meta['0'].cdn1;
-let ipfsgate = meta['0'].ipfsgate;
-let ipfsgate1 = meta['0'].ipfsgate1;
-let ipfs={"abci":ipfsgate,"abcii":ipfsgate1,"id":data.p}
-let xipfs=""
+
 
 let prel = parseInt(meta['0'].prel);
 let delayml = parseInt(meta['0'].delayml);
@@ -65,15 +62,14 @@ if("img_data" in data.manga_data)
 {
     imgdata=data.manga_data.img_data
 }
-
 </script>
 {#if ((data.chen!=null&&data.chen!=undefined&&data.chen.length > 0&&parseInt(data.chen)>=0)||(data.chjp!=null&&data.chjp!=undefined&&data.chjp.length > 0&&parseInt(data.chjp)>=0))}
 
 {@html meta[0].inhtml['ad-up']}
-<MangaApp  delayml={delayml} prel={prel} ipfsgate={data.ipfs} cdncdn={cdncdn} cdncdn1={cdncdn1} cheng={parseInt(chengt)} chjpn={parseInt(chjpt)} enp={[enp]} jpp={[jpp]} lang={langt} endata={imgs_darr.en_data} jpdata={imgs_darr.jp_data} chaptersen={chaptersen} chaptersjp={chaptersjp} volumesen={volumesen} volumesjp={volumesjp} imgdata={imgdata}/>
+<MangaApp  server={ll['server']} delayml={delayml} prel={prel} ipfsgate={data.ipfs} cdncdn={cdncdn} cdncdn1={cdncdn1} cheng={parseInt(chengt)} chjpn={parseInt(chjpt)} enp={[enp]} jpp={[jpp]} lang={langt} endata={imgs_darr.en_data} jpdata={imgs_darr.jp_data} chaptersen={chaptersen} chaptersjp={chaptersjp} volumesen={volumesen} volumesjp={volumesjp} imgdata={imgdata}/>
 {@html meta[0].inhtml['ad-down']}
 {:else}
-<MangaView ll={ll} data={data} cdncdn1={cdncdn1}/>
+<MangaView ll={ll} data={data} cdncdn={cdncdn}/>
 {@html meta[0].inhtml['ad-down']}
 {/if}
 <svelte:head>
@@ -88,13 +84,13 @@ if("img_data" in data.manga_data)
     <meta name="description" content={data.manga_data.syn_en} />
     <meta property="og:title" content={ll.entit}/>
     <meta property="og:description" content={data.manga_data.syn_en}/>
-    <meta property="og:image" content="{cdncdn1}/{ll.coveren}"/>
+    <meta property="og:image" content="{cdncdn}/{ll.coveren}"/>
 {:else}
     <title>{ll.jptit} - Bilingual Manga</title>
     <meta name="description" content={data.manga_data.syn_jp} />
     <meta property="og:title" content={ll.jptit}/>
     <meta property="og:description" content={data.manga_data.syn_jp}/>
-    <meta property="og:image" content="{cdncdn1}/{ll.coverjp}"/>
+    <meta property="og:image" content="{cdncdn}/{ll.coverjp}"/>
 
 {/if}
 </svelte:head>
